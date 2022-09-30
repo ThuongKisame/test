@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div id="main">
+        <div class="form-login  font-lato">
+            <div class="wrap-form">
+                <div class="content col-10">
+                    <div class="logo">
+                        <h2 class="color-black">LOWLAND</h2>
+                        <h2 class="color-brown">COFFEE</h2>
+                    </div>
+                    <hr>
+                    <div class="wrap-input">
+                        <label for="Email">Email</label>
+                        <input type="Email" id="input-email">
+                    </div>
+                    <div class="wrap-input">
+                        <label for="Email">Mật khẩu</label>
+                        <input type="password" id="input-password">
+                    </div>
+                    <button id="btn-login" class="btn-login btn">Đăng nhập</button>
+                    <p class="register">Bạn chưa có tài khoản? <a href="./register.html"
+                            class="forgot-password btn">Đăng ký!</a></p>
+                    <a href="./register.html" class="forgot-password btn">Quên mật khẩu!</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- <script>
+        var btn_login = document.getElementById("btn-login");
+        const inputPassword=document.getElementById("input-password");
+        inputPassword.addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') {
+                       login()
+                    }
+                });
+        if (btn_login) {
+            btn_login.addEventListener('click', login)
+           
+        }
+        function login(){
+            fetch('https://limitless-mountain-40565.herokuapp.com/login', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: document.getElementById("input-email").value,
+                    password: document.getElementById("input-password").value,
+                    isChangeMD5 : true
+
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+
+                    console.log('Success:', data);
+                    if (data.message == "SUCCESSFUL") {
+                        var s="token="+data.result.token;
+                        console.log(s);
+                        document.cookie=s;
+                        localStorage.setItem("staffName",data.result.staffName)
+                        localStorage.setItem("idStaff",data.result.idStaff)
+                        localStorage.setItem("roles", JSON.stringify(data.result.roles))
+                        window.location="./lookup_recipe.html";    
+                    }else{
+                        alert(data.message)
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+    </script> -->
+</body>
+
+</html>
+<!-- //fetch('https://limitless-mountain-40565.herokuapp.com/api/product', {
+    method: 'GET', // or 'PUT'
+    headers: {
+        'Content-Type': 'application/json',
+        'token': document.cookie.split("=")[1]
+    }
+})
+    .then(response => response.json())
+    .then(data => {
+
+        console.log('Success:', data);
+            
+        
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    }); -->
